@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Holo-Table 3D — Fotorealistyczna Sala Narad</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- True Multi-Depth Segmented Parallax Framework (16:9 full-width framing) -->
+  <div id="stage-viewport" class="stage-viewport">
+    <div id="stage-frame" class="stage-frame">
+      <!-- LAYER 0: Distant Sunset City Skyline (visible through cut-out windows, slow parallax) -->
+      <img
+        src="./assets/layers/bg_skyline_outside.png"
+        alt=""
+        class="p-layer layer-skyline"
+        data-depth="0.28"
+        aria-hidden="true"
+      />
+      <div class="sunset-flare p-layer" data-depth="0.35" aria-hidden="true"></div>
+
+      <!-- LAYER 1: Boardroom Interior with Transparent Window Cut-Outs -->
+      <img
+        src="./assets/layers/boardroom_cutout.png"
+        alt=""
+        class="p-layer layer-boardroom"
+        data-depth="0.9"
+        aria-hidden="true"
+      />
+
+      <!-- LAYER 2: 9 Individual Extracted Screen Graphic Layers at True Z-Depths -->
+      <img src="./assets/screens/E9_project_portfolio.png" alt="E9 Project Portfolio" class="p-layer screen-img" data-screen-img="E9" data-depth="1.05" />
+      <img src="./assets/screens/E6_sustainable_future.png" alt="E6 Sustainable Future" class="p-layer screen-img" data-screen-img="E6" data-depth="1.18" />
+      <img src="./assets/screens/E7_global_operations.png" alt="E7 Global Operations" class="p-layer screen-img" data-screen-img="E7" data-depth="1.22" />
+      <img src="./assets/screens/E5_project_horizon.png" alt="E5 Project Horizon" class="p-layer screen-img" data-screen-img="E5" data-depth="1.28" />
+      <img src="./assets/screens/E8_ai_insights.png" alt="E8 AI Insights" class="p-layer screen-img" data-screen-img="E8" data-depth="1.36" />
+      <img src="./assets/screens/E4_risk_analysis.png" alt="E4 Risk Analysis" class="p-layer screen-img" data-screen-img="E4" data-depth="1.42" />
+      <img src="./assets/screens/E3_table_kpi.png" alt="E3 Table KPI" class="p-layer screen-img" data-screen-img="E3" data-depth="0.92" />
+      <img src="./assets/screens/E2_global_network.png" alt="E2 Global Network" class="p-layer screen-img" data-screen-img="E2" data-depth="1.70" />
+      <img src="./assets/screens/E1_market_overview.png" alt="E1 Market Overview" class="p-layer screen-img" data-screen-img="E1" data-depth="1.85" />
+
+      <!-- LAYER 3: Grounded 3D WebGL Hologram Standing on the Conference Tabletop -->
+      <div id="canvas-root" aria-label="Interaktywny hologram 3D stojący na stole konferencyjnym"></div>
+
+      <!-- LAYER 4: Perspective Plane Overlay (E1–E9 + H0, active by default) -->
+      <svg
+        id="screens-overlay"
+        class="screens-overlay p-layer"
+        data-depth="0.9"
+        viewBox="0 0 1000 562.5"
+        preserveAspectRatio="none"
+        aria-label="Wydzielone płaszczyzny ekranów 3D na grafice"
+      >
+        <g class="screen-plane selected" data-screen="E1" data-panel="network" data-title="E1 · Market Overview">
+          <polygon points="28,35 199,77 199,134 28,102" />
+          <text x="34" y="29">E1 · Market Overview</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E2" data-panel="network" data-title="E2 · Global Network &amp; Intelligence">
+          <polygon points="19,128 318,159 318,276 19,287" />
+          <text x="25" y="122">E2 · Global Network &amp; Intelligence</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E3" data-panel="network" data-title="E3 · Stół: Global Network KPI">
+          <polygon points="0,382 106,365 266,479 106,508 0,446" />
+          <text x="12" y="362">E3 · Stół KPI</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E4" data-panel="risk" data-title="E4 · Risk Analysis">
+          <polygon points="287,107 386,127 386,178 287,168" />
+          <text x="287" y="101">E4 · Risk Analysis</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E5" data-panel="horizon" data-title="E5 · Project Horizon">
+          <polygon points="488,121 607,114 607,170 488,173" />
+          <text x="488" y="108">E5 · Project Horizon</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E6" data-panel="insights" data-title="E6 · Sustainable Future">
+          <polygon points="686,106 809,98 809,173 686,175" />
+          <text x="686" y="94">E6 · Sustainable Future</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E7" data-panel="insights" data-title="E7 · Global Operations">
+          <polygon points="628,187 773,182 773,252 628,249" />
+          <text x="628" y="180">E7 · Global Operations</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E8" data-panel="insights" data-title="E8 · AI Insights">
+          <polygon points="854,88 986,75 986,170 854,174" />
+          <text x="854" y="70">E8 · AI Insights</text>
+        </g>
+        <g class="screen-plane selected" data-screen="E9" data-panel="horizon" data-title="E9 · Project Portfolio">
+          <polygon points="779,233 882,232 882,297 779,291" />
+          <text x="779" y="226">E9 · Project Portfolio</text>
+        </g>
+        <g class="screen-plane core-plane selected" data-screen="H0" data-panel="hologram" data-title="H0 · Centralny Hologram 3D na Stole">
+          <ellipse cx="495" cy="368" rx="236" ry="60" />
+          <text x="385" y="444">H0 · Podstawa Hologramu 3D (Blat Stołu)</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Minimal Translucent Top Navigation Bar -->
+  <header class="hud-topbar">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <div>
+        <h1>EXECUTIVE HOLO-TABLE 3D</h1>
+        <span>Fotorealistyczna Sala Narad · Kadrowanie Ukośne 6DoF</span>
+      </div>
+    </div>
+
+    <nav class="camera-presets" aria-label="Widoki kamery 3D">
+      <button class="cam-btn active" data-cam="boardroom">Sala Narad (Skos)</button>
+      <button class="cam-btn" data-cam="hologram">Hologram 3D</button>
+      <button class="cam-btn" data-cam="table">Stół i Mapa</button>
+      <button class="cam-btn" data-cam="windows">Panorama za Oknami</button>
+      <button class="cam-btn active" id="btn-toggle-screens">Ramki (E1–E9)</button>
+      <button class="cam-btn" id="btn-toggle-hud">Ukryj HUD</button>
+    </nav>
+  </header>
+
+  <!-- Left Sidebar: Projects & Restored 9 Screens Preview Panel -->
+  <aside class="sidebar-panel" id="sidebar-panel" aria-label="Pasek boczny: Ekrany i Projekty">
+    <div class="sb-section">
+      <div class="sb-header">
+        <span>PROJEKTY LOKALNE</span>
+      </div>
+      <div class="sb-projects">
+        <a class="sb-proj active" href="http://localhost:3004" target="_self">Executive Holo-Table 3D <small>:3004</small></a>
+        <a class="sb-proj" href="http://localhost:3002" target="_blank" rel="noopener">Chronos Vault PWA <small>:3002</small></a>
+        <a class="sb-proj" href="http://localhost:3003" target="_blank" rel="noopener">HoloArch AR Studio <small>:3003</small></a>
+        <a class="sb-proj" href="http://127.0.0.1:3001" target="_blank" rel="noopener">BM Clinics Web <small>:3001</small></a>
+        <a class="sb-proj" href="http://127.0.0.1:8765" target="_blank" rel="noopener">Zarządzanie Pracą <small>:8765</small></a>
+      </div>
+    </div>
+
+    <div class="sb-section sb-screens-section">
+      <div class="sb-header">
+        <span>EKRANY (E1–E9)</span>
+        <button type="button" class="sb-restore-btn" id="btn-restore-screens">Przywróć wszystkie</button>
+      </div>
+      <div class="sb-screens-list" id="sb-screens-list">
+        <button type="button" class="sb-screen-item active" data-sb-screen="E1"><img src="./assets/screens/E1_market_overview.png" alt="E1" /><span>E1 · Market Overview</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E2"><img src="./assets/screens/E2_global_network.png" alt="E2" /><span>E2 · Global Network</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E3"><img src="./assets/screens/E3_table_kpi.png" alt="E3" /><span>E3 · Stół KPI</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E4"><img src="./assets/screens/E4_risk_analysis.png" alt="E4" /><span>E4 · Risk Analysis</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E5"><img src="./assets/screens/E5_project_horizon.png" alt="E5" /><span>E5 · Project Horizon</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E6"><img src="./assets/screens/E6_sustainable_future.png" alt="E6" /><span>E6 · Sustainable Future</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E7"><img src="./assets/screens/E7_global_operations.png" alt="E7" /><span>E7 · Global Operations</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E8"><img src="./assets/screens/E8_ai_insights.png" alt="E8" /><span>E8 · AI Insights</span></button>
+        <button type="button" class="sb-screen-item active" data-sb-screen="E9"><img src="./assets/screens/E9_project_portfolio.png" alt="E9" /><span>E9 · Project Portfolio</span></button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Live Glass Inspector Card -->
+  <section class="inspector-card" id="inspector-card">
+    <div class="inspector-head">
+      <span class="inspector-badge" id="insp-badge">CENTRALNY HOLOGRAM 3D</span>
+      <span class="inspector-live">● LIVE 3D WEBGL</span>
+    </div>
+    <h2 id="insp-title">Holograficzny Wykres Przestrzenny „Skyline Core”</h2>
+    <p id="insp-desc">
+      Interaktywny model 3D Three.js osadzony w ukośnej perspektywie wzdłuż lustrzanego stołu konferencyjnego — z obracanymi wieżami, skanerem laserowym, pierścieniami radaru i żywą paralaksą 6DoF.
+    </p>
+    <div class="inspector-metrics" id="insp-metrics">
+      <div class="metric"><span>Aktywa</span><strong>$12.4B</strong></div>
+      <div class="metric"><span>Projekty</span><strong>247</strong></div>
+      <div class="metric"><span>Skuteczność</span><strong>93%</strong></div>
+    </div>
+  </section>
+
+  <!-- Subtle Bottom Interaction Hint -->
+  <footer class="hud-hint">
+    Ruszaj myszką (paralaksa 6DoF) · Przeciągnij, aby obrócić hologram 3D · Kliknij punkt na scenie, aby zbliżyć kadr
+  </footer>
+
+  <script type="module" src="scene3d.js"></script>
+</body>
+</html>
